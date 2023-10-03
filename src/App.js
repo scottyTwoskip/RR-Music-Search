@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Gallery from './components/Gallery'
 import SearchBar from './components/Searchbar'
 import AlbumView from './components/AlbumView'
@@ -7,9 +7,9 @@ import ArtistView from './components/ArtistView'
 import { DataContext } from './context/DataContext'
 
 function App() {
-	let [search, setSearch] = useState('')
-	let [message, setMessage] = useState('Search for Music!')
-	let [data, setData] = useState([])
+	const [search, setSearch] = useState('')
+	const [message, setMessage] = useState('Search for Music!')
+	const [data, setData] = useState([])
 
 	const API_URL = 'https://itunes.apple.com/search?term='
 
@@ -43,7 +43,7 @@ function App() {
 						<>
 							<SearchBar handleSearch={handleSearch} />
 							<DataContext.Provider value={data}>
-								<Gallery data={data} />
+								<Gallery />
 							</DataContext.Provider>
 						</>
 					} />
